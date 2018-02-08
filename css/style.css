@@ -49,4 +49,49 @@ body {
   /* Specify a polygon in which the element whil still be visible */
   /* Can use the Clippy tool for this */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* x and y,  Clockwise */
+
+  /* Set position to relative so .logo-box (child) has a reference for the absolte positioning */
+  position: relative;
+}
+
+.logo-box {
+  /* Absolute so we can control where it is displayed */
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  /* Absolute so we get it in the middle */
+  position: absolute;
+
+  /* Position this element always exactly in the center of the parent */
+  top: 40%; /* Sets top border of text-box to 40% of the height of parent element */
+  left: 50%; /* Sets left border of text-box to 50% of the width of the parent element */
+  transform: translate(-50%, -50%); /* Translate this element to position it minus half its width and height which puts it in the center */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  /* Block so it starts on a new line */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  /* Block so it starts on a new line */
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
