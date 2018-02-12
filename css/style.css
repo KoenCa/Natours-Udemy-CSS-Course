@@ -73,11 +73,19 @@ body {
   top: 40%; /* Sets top border of text-box to 40% of the height of parent element */
   left: 50%; /* Sets left border of text-box to 50% of the width of the parent element */
   transform: translate(-50%, -50%); /* Translate this element to position it minus half its width and height which puts it in the center */
+
+  /* Align our button to the center because it is treated as text */
+  text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* Fix for animation causing elements to shake up or down */
+  backface-visibility: hidden;
+
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -86,6 +94,14 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* Add animation */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; /* Slower towards the end */
+
+  /* animation-iteration-count: 3; Amount of times animation is played */
+  /* animation-delay: 3s; Wait before animation to play */
 }
 
 .heading-primary-sub {
@@ -94,4 +110,79 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* Add animation */
+  animation: moveInRight 1s ease-out;
+}
+
+/* Animations for header title */
+/* Browsers are optimised for opacity and transform */
+@keyframes moveInLeft {
+  /* Start of the animation */
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* End of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* Start of the animation */
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* End of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* Use pseudo classes to style both states of our anchor button */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px; /* Top/bottom and left/right */
+  display: inline-block; /* Give the button its own space */
+  border-radius: 100px;
+
+  /* Specify that there can be a transition on this element (for :hover and :active) */
+  /* Alaways specify it on the base state */
+  transition: all .2s;
+}
+
+.btn:hover {
+  /* Use transform to let the button move up */
+  transform: translateY(-3px);
+
+  /* Make button 'pop' so it goes 'closer' to the user */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+  transform: translateY(-1px); /* In relation to the base state (.btn) */
+
+  /* Let the button go a little closer to the page from the :hover state */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
