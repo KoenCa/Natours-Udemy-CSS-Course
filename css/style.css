@@ -153,6 +153,20 @@ body {
   }
 }
 
+@keyframes moveInBottom {
+  /* Start of the animation */
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  /* End of the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
 /* Use pseudo classes to style both states of our anchor button */
 .btn:link,
 .btn:visited {
@@ -165,6 +179,9 @@ body {
   /* Specify that there can be a transition on this element (for :hover and :active) */
   /* Alaways specify it on the base state */
   transition: all .2s;
+
+  /* for the after pseudo element is it has a reference element for absolute positioning */
+  position: relative;
 }
 
 .btn:hover {
@@ -182,7 +199,48 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
+/* Pseudo element is treated as child of the base element */
+.btn::after {
+  /* Always specify the content property otherwise it wont be displayed */
+  content: "";
+
+  /* Because it is a child this is the same size as the normal button */
+  height: 100%;
+  width: 100%;
+
+  /* Same properties as parent element */
+  border-radius: 100px;
+  display: inline-block;
+
+  /* Set it behind the button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  /* Set on initial state to animate .btn:hover::after */
+  transition: all .4s;
+}
+
+/* When buttons is hovered we want some styles for the after pseudo element */
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+  /* Page load animation for out header button */
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+
+  /* Automatically apply the styles of the 0% of the moveInBottom animation */
+  animation-fill-mode: backwards;
 }
