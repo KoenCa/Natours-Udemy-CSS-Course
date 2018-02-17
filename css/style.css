@@ -8,26 +8,39 @@ Dark green: #28b485
 */
 
 /* === Simple browser reset === */
-* {
+*,
+*::after
+*::before {
   /* Some browser add margin and padding to some elements */
   margin: 0;
   padding: 0;
 
-  /* Change box model so borders and paddings are no longer added to total width or height of elements */
-  box-sizing: border-box;
+  /* Let all elements inherit the box-sizing specified in body (best practice) */
+  box-sizing: inherit;
+}
+
+/* Specify root font size for all our rem values */
+html {
+  /* One rem equals 10px */
+  /* Divide all pixel values by 10 to get the rem values */
+  /* Bad practice to set this in pixels because user can not override it */
+  font-size: 62.5%; /* 10 / 16 (16 is default browser font-size) */
 }
 
 body {
   /* Always set font styles in the body element */
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
 
   /* 1.7 times bigger than standard line-height */
   line-height: 1.7;
 
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+
+  /* Change box model so borders and paddings are no longer added to total width or height of elements */
+  box-sizing: border-box;
 }
 
 /* === Header === */
@@ -37,7 +50,7 @@ body {
 
   /* Two background-images on top of eacht other, gradient comes first */
   background-image:
-    linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)),
+    linear-gradient(to right bottom, rgba(126, 213, 111, .8), rgba(40, 180, 133, .8)),
     url('../img/hero.jpg');
 
   /* Always try to fit the background inside the element/viewport */
@@ -57,12 +70,12 @@ body {
 .logo-box {
   /* Absolute so we can control where it is displayed */
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -85,15 +98,15 @@ body {
   /* Fix for animation causing elements to shake up or down */
   backface-visibility: hidden;
 
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* Block so it starts on a new line */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   /* Add animation */
   animation-name: moveInLeft;
@@ -107,9 +120,9 @@ body {
 .heading-primary-sub {
   /* Block so it starts on a new line */
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /* Add animation */
   animation: moveInRight 1s ease-out;
@@ -121,11 +134,11 @@ body {
   /* Start of the animation */
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   /* End of the animation */
@@ -139,11 +152,11 @@ body {
   /* Start of the animation */
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   /* End of the animation */
@@ -157,7 +170,7 @@ body {
   /* Start of the animation */
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(10rem);
   }
 
   /* End of the animation */
@@ -172,9 +185,9 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px; /* Top/bottom and left/right */
+  padding: 1.5rem 4rem; /* Top/bottom and left/right */
   display: inline-block; /* Give the button its own space */
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* Specify that there can be a transition on this element (for :hover and :active) */
   /* Alaways specify it on the base state */
@@ -182,21 +195,23 @@ body {
 
   /* for the after pseudo element is it has a reference element for absolute positioning */
   position: relative;
+
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   /* Use transform to let the button move up */
-  transform: translateY(-3px);
+  transform: translateY(-.3rem);
 
   /* Make button 'pop' so it goes 'closer' to the user */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
-  transform: translateY(-1px); /* In relation to the base state (.btn) */
+  transform: translateY(-1rem); /* In relation to the base state (.btn) */
 
   /* Let the button go a little closer to the page from the :hover state */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 /* Pseudo element is treated as child of the base element */
@@ -209,7 +224,7 @@ body {
   width: 100%;
 
   /* Same properties as parent element */
-  border-radius: 100px;
+  border-radius: 10rem;
   display: inline-block;
 
   /* Set it behind the button */
@@ -237,7 +252,7 @@ body {
   background-color: #fff;
 }
 
-  /* Page load animation for out header button */
+  /* Page load animation for our header button */
 .btn-animated {
   animation: moveInBottom .5s ease-out .75s;
 
