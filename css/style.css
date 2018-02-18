@@ -67,18 +67,18 @@ body {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   /* Absolute so we can control where it is displayed */
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   /* Absolute so we get it in the middle */
   position: absolute;
 
@@ -101,7 +101,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   /* Block so it starts on a new line */
   display: block;
   font-size: 6rem;
@@ -117,7 +117,7 @@ body {
   /* animation-delay: 3s; Wait before animation to play */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   /* Block so it starts on a new line */
   display: block;
   font-size: 2rem;
@@ -243,17 +243,17 @@ body {
   opacity: 0;
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
   /* Page load animation for our header button */
-.btn-animated {
+.btn--animated {
   animation: moveInBottom .5s ease-out .75s;
 
   /* Automatically apply the styles of the 0% of the moveInBottom animation */
