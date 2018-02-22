@@ -1,3 +1,9 @@
+$color-primary: #7ed56f;
+$color-primary-light: #55c57a;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
+
 /* === Simple browser reset === */
 *,
 *::after
@@ -5,74 +11,92 @@
   /* Some browser add margin and padding to some elements */
   margin: 0;
   padding: 0;
+
   /* Let all elements inherit the box-sizing specified in body (best practice) */
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 /* Specify root font size for all our rem values */
 html {
   /* One rem equals 10px */
   /* Divide all pixel values by 10 to get the rem values */
   /* Bad practice to set this in pixels because user can not override it */
-  font-size: 62.5%;
-  /* 10 / 16 (16 is default browser font-size) */ }
+  font-size: 62.5%; /* 10 / 16 (16 is default browser font-size) */
+}
 
 body {
   /* Always set font styles in the body element */
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
+
   /* 1.7 times bigger than standard line-height */
   line-height: 1.7;
-  color: #777;
+
+  color: $color-grey-dark;
   padding: 3rem;
+
   /* Change box model so borders and paddings are no longer added to total width or height of elements */
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /* === Header === */
 .header {
   /* height should always be 95% of the viewport height */
   height: 95vh;
+
   /* Two background-images on top of eacht other, gradient comes first */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image:
+    linear-gradient(to right bottom, rgba($color-primary, .8), rgba($color-primary-dark, .8)),
+    url('../img/hero.jpg');
+
   /* Always try to fit the background inside the element/viewport */
   background-size: cover;
+
   /* Ensures that the top of the image stays at the top of the container */
   background-position: top;
+
   /* Specify a polygon in which the element whil still be visible */
   /* Can use the Clippy tool for this */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* x and y,  Clockwise */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* x and y,  Clockwise */
+
   /* Set position to relative so .logo-box (child) has a reference for the absolte positioning */
-  position: relative; }
+  position: relative;
+}
 
 .header__logo-box {
   /* Absolute so we can control where it is displayed */
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 .header__text-box {
   /* Absolute so we get it in the middle */
   position: absolute;
+
   /* Position this element always exactly in the center of the parent */
-  top: 40%;
-  /* Sets top border of text-box to 40% of the height of parent element */
-  left: 50%;
-  /* Sets left border of text-box to 50% of the width of the parent element */
-  transform: translate(-50%, -50%);
-  /* Translate this element to position it minus half its width and height which puts it in the center */
+  top: 40%; /* Sets top border of text-box to 40% of the height of parent element */
+  left: 50%; /* Sets left border of text-box to 50% of the width of the parent element */
+  transform: translate(-50%, -50%); /* Translate this element to position it minus half its width and height which puts it in the center */
+
   /* Align our button to the center because it is treated as text */
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
+
   /* Fix for animation causing elements to shake up or down */
   backface-visibility: hidden;
-  margin-bottom: 6rem; }
+
+  margin-bottom: 6rem;
+}
 
 .heading-primary--main {
   /* Block so it starts on a new line */
@@ -80,13 +104,15 @@ body {
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
+
   /* Add animation */
   animation-name: moveInLeft;
   animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* Slower towards the end */
+  animation-timing-function: ease-out; /* Slower towards the end */
+
   /* animation-iteration-count: 3; Amount of times animation is played */
-  /* animation-delay: 3s; Wait before animation to play */ }
+  /* animation-delay: 3s; Wait before animation to play */
+}
 
 .heading-primary--sub {
   /* Block so it starts on a new line */
@@ -94,8 +120,10 @@ body {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
+
   /* Add animation */
-  animation: moveInRight 1s ease-out; }
+  animation: moveInRight 1s ease-out;
+}
 
 /* Animations for header title */
 /* Browsers are optimised for opacity and transform */
@@ -103,97 +131,128 @@ body {
   /* Start of the animation */
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
+
   80% {
-    transform: translateX(1rem); }
+    transform: translateX(1rem);
+  }
+
   /* End of the animation */
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInRight {
   /* Start of the animation */
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   80% {
-    transform: translateX(-1rem); }
+    transform: translateX(-1rem);
+  }
+
   /* End of the animation */
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInBottom {
   /* Start of the animation */
   0% {
     opacity: 0;
-    transform: translateY(10rem); }
+    transform: translateY(10rem);
+  }
+
   /* End of the animation */
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 /* Use pseudo classes to style both states of our anchor button */
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1.5rem 4rem;
-  /* Top/bottom and left/right */
-  display: inline-block;
-  /* Give the button its own space */
+  padding: 1.5rem 4rem; /* Top/bottom and left/right */
+  display: inline-block; /* Give the button its own space */
   border-radius: 10rem;
+
   /* Specify that there can be a transition on this element (for :hover and :active) */
   /* Alaways specify it on the base state */
   transition: all .2s;
+
   /* for the after pseudo element is it has a reference element for absolute positioning */
   position: relative;
-  font-size: 1.6rem; }
+
+  font-size: 1.6rem;
+}
 
 .btn:hover {
   /* Use transform to let the button move up */
-  transform: translateY(-0.3rem);
+  transform: translateY(-.3rem);
+
   /* Make button 'pop' so it goes 'closer' to the user */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
 
 .btn:active {
-  transform: translateY(-1rem);
-  /* In relation to the base state (.btn) */
+  transform: translateY(-1rem); /* In relation to the base state (.btn) */
+
   /* Let the button go a little closer to the page from the :hover state */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
 
 /* Pseudo element is treated as child of the base element */
 .btn::after {
   /* Always specify the content property otherwise it wont be displayed */
   content: "";
+
   /* Because it is a child this is the same size as the normal button */
   height: 100%;
   width: 100%;
+
   /* Same properties as parent element */
   border-radius: 10rem;
   display: inline-block;
+
   /* Set it behind the button */
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
+
   /* Set on initial state to animate .btn:hover::after */
-  transition: all .4s; }
+  transition: all .4s;
+}
 
 /* When buttons is hovered we want some styles for the after pseudo element */
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+  opacity: 0;
+}
 
 .btn--white {
-  background-color: #fff;
-  color: #777; }
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
 
 .btn--white::after {
-  background-color: #fff; }
+  background-color: $color-white;
+}
 
-/* Page load animation for our header button */
+  /* Page load animation for our header button */
 .btn--animated {
   animation: moveInBottom .5s ease-out .75s;
+
   /* Automatically apply the styles of the 0% of the moveInBottom animation */
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
