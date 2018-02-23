@@ -1,0 +1,24 @@
+/* === Simple browser reset === */
+
+*,
+*::after *::before {
+  /* Some browser add margin and padding to some elements */
+  margin: 0;
+  padding: 0;
+  /* Let all elements inherit the box-sizing specified in body (best practice) */
+  box-sizing: inherit;
+}
+
+/* Specify root font size for all our rem values */
+html {
+  /* One rem equals 10px (Defines 1 rem) */
+  /* Divide all pixel values by 10 to get the rem values */
+  /* Bad practice to set this in pixels because user can not override it */
+  font-size: 62.5%;
+  /* 10 / 16 (16 is default browser font-size) */
+}
+
+body {
+  /* Change box model so borders and paddings are no longer added to total width or height of elements */
+  box-sizing: border-box;
+}
