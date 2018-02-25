@@ -1,43 +1,40 @@
 /* === Header === */
 
 .header {
-  /* height should always be 95% of the viewport height */
-  height: 95vh;
-  /* Two background-images on top of eacht other, gradient comes first */
-  background-image: linear-gradient(to right bottom, rgba($color-primary, .8), rgba($color-primary-dark, .8)), url('../img/hero.jpg');
-  /* Always try to fit the background inside the element/viewport */
-  background-size: cover;
-  /* Ensures that the top of the image stays at the top of the container */
-  background-position: top;
-  /* Specify a polygon in which the element whil still be visible */
-  /* Can use the Clippy tool for this */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* x and y,  Clockwise */
-  /* Set position to relative so .logo-box (child) has a reference for the absolte positioning */
-  position: relative;
-
-  &__logo-box {
-    /* Absolute so we can control where it is displayed */
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-  }
-
-  &__logo {
-    height: 3.5rem;
-  }
-
-  &__text-box {
-    /* Absolute so we get it in the middle */
-    position: absolute;
-    /* Position this element always exactly in the center of the parent */
-    top: 40%;
-    /* Sets top border of text-box to 40% of the height of parent element */
-    left: 50%;
-    /* Sets left border of text-box to 50% of the width of the parent element */
-    transform: translate(-50%, -50%);
-    /* Translate this element to position it minus half its width and height which puts it in the center */
-    /* Align our button to the center because it is treated as text */
-    text-align: center;
-  }
+    /* height should always be 95% of the viewport height */
+    height: 95vh;
+    /* Two background-images on top of eacht other, gradient comes first */
+    background-image: linear-gradient(to right bottom, rgba($color-primary, .8), rgba($color-primary-dark, .8)), url('../img/hero.jpg');
+    /* Always try to fit the background inside the element/viewport */
+    background-size: cover;
+    /* Ensures that the top of the image stays at the top of the container */
+    background-position: top;
+    /* Specify a polygon in which the element whil still be visible */
+    /* Can use the Clippy tool for this */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* x and y,  Clockwise */
+    /* Set position to relative so .logo-box (child) has a reference for the absolte positioning */
+    position: relative;
+    &__logo-box {
+        /* Absolute so we can control where it is displayed */
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    &__logo {
+        height: 3.5rem;
+    }
+    &__text-box {
+        /* Absolute so we get it in the middle */
+        position: absolute;
+        /* Position this element always exactly in the center of the parent */
+        top: 40%;
+        /* Sets top border of text-box to 40% of the height of parent element */
+        left: 50%;
+        /* Sets left border of text-box to 50% of the width of the parent element */
+        transform: translate(-50%, -50%);
+        /* Translate this element to position it minus half its width and height which puts it in the center */
+        /* Align our button to the center because it is treated as text */
+        text-align: center;
+    }
 }

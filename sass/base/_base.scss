@@ -1,7 +1,8 @@
 /* === Simple browser reset === */
 
 *,
-*::after *::before {
+*::after,
+*::before {
   /* Some browser add margin and padding to some elements */
   margin: 0;
   padding: 0;

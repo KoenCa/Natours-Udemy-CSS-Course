@@ -1,6 +1,5 @@
 .row {
     max-width: $grid-width; // Max so it can decrease if there is less space available
-    background-color: #eee;
     margin: 0 auto; //Always center block element
 
     // Last row doesn't get the margin-bottom
@@ -12,7 +11,6 @@
 
     // Select all elements where class attributes start with `col-`
     [class ^= 'col-'] {
-        background-color: orangered;
         float: left;
 
         // Last column doesn't need a gutter
