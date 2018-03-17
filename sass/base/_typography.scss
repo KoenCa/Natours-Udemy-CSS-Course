@@ -48,13 +48,9 @@ body {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
-  display: inline-block;
-  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-  background-clip: text; // clip (on/behind text)  background (gradient) to the text
-  -webkit-background-clip: text;
-  color: transparent; // make text color transparant so gradient background is visible
-  letter-spacing: .2rem; //
+  letter-spacing: .2rem;
   transition: all .2s;
+  @include text-linear-gradient;
 
   &:hover {
       transform: skewY(2deg) skewX(15deg) scale(1.1);

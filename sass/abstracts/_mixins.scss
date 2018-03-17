@@ -5,3 +5,11 @@
         clear: both; // Clear left and right floats
     }
 }
+
+@mixin text-linear-gradient {
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    background-clip: text; // clip (on/behind text)  background (gradient) to the text
+    -webkit-background-clip: text;
+    color: transparent; // make text color transparant so gradient background is visible
+}
