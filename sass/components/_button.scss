@@ -1,25 +1,26 @@
 /* Use pseudo classes to style both states of our anchor button */
 
 .btn {
+  &, // Translates into button
   &:link,
   &:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
-    /* Top/bottom and left/right */
     display: inline-block;
-    /* Give the button its own space */
     border-radius: 10rem;
-    /* Specify that there can be a transition on this element (for :hover and :active) */
-    /* Alaways specify it on the base state */
     transition: all .2s;
-    /* for the after pseudo element is it has a reference element for absolute positioning */
     position: relative;
     font-size: $default-font-size;
+
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
-  &:hover {
-    /* Use transform to let the button move up */
+  &:hover{
+
+     /* Use transform to let the button move up */
     transform: translateY(-.3rem);
     /* Make button 'pop' so it goes 'closer' to the user */
     box-shadow: 0 1rem 2rem rgba($color-black, .2);
@@ -30,7 +31,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1rem);
     /* In relation to the base state (.btn) */
     /* Let the button go a little closer to the page from the :hover state */

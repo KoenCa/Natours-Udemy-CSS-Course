@@ -1,27 +1,28 @@
+// !important is allowed in the utility classes
 .u-center-text {
-    text-align: center;
+    text-align: center !important;
 }
 
 .u-margin-bottom-small {
-    margin-bottom: 1.5rem; // 15px / 10px
+    margin-bottom: 1.5rem !important;
 }
 
 .u-margin-bottom-medium {
-    margin-bottom: 4rem; // 40px / 10px
+    margin-bottom: 4rem !important;
 }
 
 .u-margin-bottom-big {
-    margin-bottom: 8rem; // 80px / 10px
+    margin-bottom: 8rem !important;
 }
 
 .u-margin-top-big {
-    margin-top: 8rem; // 80px / 10px
+    margin-top: 8rem !important;
 }
 
 .u-margin-top-big {
-    margin-top: 8rem; // 80px / 10px
+    margin-top: 8rem !important;
 }
 
 .u-margin-top-huge {
-    margin-top: 10rem; // 80px / 10px
+    margin-top: 10rem !important;
 }
