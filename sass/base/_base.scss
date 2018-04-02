@@ -10,16 +10,31 @@
   box-sizing: inherit;
 }
 
-/* Specify root font size for all our rem values */
 html {
   /* One rem equals 10px (Defines 1 rem) */
   /* Divide all pixel values by 10 to get the rem values */
   /* Bad practice to set this in pixels because user can not override it */
-  font-size: 62.5%;
-  /* 10 / 16 (16 is default browser font-size) */
+  font-size: 62.5%; /* 10 / 16 (16 is default browser font-size) */
+
+  @include respond(tab-land) {
+    font-size: 56.25%; // 1rem = 9px , 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px , 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12/16 = 75%
+  }
 }
 
 body {
   /* Change box model so borders and paddings are no longer added to total width or height of elements */
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

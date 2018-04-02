@@ -18,7 +18,6 @@
         backface-visibility: hidden; // Hide the back of an element
         border-radius: $border-radius;
         overflow: hidden; // hide image overflow
-        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
         &--front {
             background-color: $color-white;
@@ -158,5 +157,54 @@
     &__price-value {
         font-size: 6rem;
         font-weight: 100;
+    }
+
+
+
+    @include respond(tab-port) {
+        height: auto;
+        border-radius: $border-radius;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &__side {
+            height: auto;
+            position: relative;
+            box-shadow: none;
+
+            &--back {
+                transform: rotateY(0);
+                -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+
+        &__details {
+            padding: 1 3rem;
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+        &:hover &__side--back {
+            transform: rotateY(0);
+        }
+
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+        }
+
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+        &__price-value {
+            font-size: 4rem;
+        }
     }
 }

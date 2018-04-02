@@ -10,39 +10,69 @@
     opacity: 0;
     visibility: hidden;
 
+    @include respond(tab-port) {
+        .col-1-of-3 {
+            display: none;
+        }
+    }
+
     &__content {
         @include center;
         z-index: 5000;
-        width: 75%;
         background-color: $color-white;
         border-radius: $border-radius;
         box-shadow: 0 2rem 4rem rgba($color-black, .2);
-        display: table;
         overflow: hidden;
+        height: 46rem;
+        width: 86rem;
 
         opacity: 0;
         transform: translate(-50% ,-50%) scale(.25);
         transition: all .4s .2s;
+
+        @include respond(tab-port) {
+            width: 85%;
+        }
     }
 
     &__left {
-        width: 33.333333%;
-        display: table-cell;
+        height: 46rem;
+        background-color: $color-white;
+        background-image:
+            linear-gradient(to right bottom, rgba($color-primary, .8), rgba($color-primary-dark, .8)),
+            url(../img/nat-8.jpg),
+            url(../img/nat-5.jpg),
+            url(../img/nat-9.jpg);
+        background-position: top, top, center, bottom;
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-size: cover, contain, contain, contain;
+        filter: blur(2px);
     }
 
     &__right {
-        width: 66.6666667%;
-        display: table-cell;
-        vertical-align: middle;
-        padding: 3rem 5rem;
+        padding: 2rem 4rem 2rem 0;
+
+        @include respond(tab-port) {
+            padding: 2rem 4rem;
+            width: 92%;
+            height: 100%;
+            @include center;
+            overflow: scroll;
+        }
+
+        @include respond(phone) {
+            padding: 2rem 2rem;
+        }
     }
 
     &__img {
+        width: 137%;
         display: block;
-        width: 100%;
+        transform: translateX(-4rem);
     }
 
     &__text {
+        display: inline-block;
         font-size: 1.4rem;
         margin-bottom: 4rem;
 
@@ -58,6 +88,21 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto;
+
+        @include respond(tab-port) {
+            margin-bottom: 2rem;
+        }
+
+        @include respond(phone) {
+            -moz-column-count: 1;
+
+            column-count: 1;
+
+            -moz-hyphens: auto;
+            -ms-hyphens: auto;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+        }
     }
 
     // OPEN STATE
@@ -84,6 +129,12 @@
             display: inline-block;
             transition: all .2s;
             line-height: 1;
+
+            @include respond(phone) {
+                top: 2rem;
+                right: 1rem;
+                font-size: 2.5rem;
+            }
         }
 
         &:hover {
