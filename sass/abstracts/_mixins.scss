@@ -54,6 +54,10 @@ but by the default font-size of the browsers. em is the best for media queries
         @media (max-width: 75em) { @content }; //1200px
     }
 
+    @if $breakpoint == tab-land-min {
+        @media (min-width: 75em) { @content }; //1200px
+    }
+
     @if $breakpoint == big-desktop {
         @media (min-width: 112.5em) { @content }; // 1800px
     }
