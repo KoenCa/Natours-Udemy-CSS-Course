@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "css:prefix": "postcss css/style.css --output css/final-css.css --watch --use autoprefixer"
   },
   "repository": {
     "type": "git",
