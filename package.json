@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/KoenCa/Natours-Udemy-CSS-Course#readme",
   "devDependencies": {
-    "node-sass": "^4.7.2"
+    "autoprefixer": "^8.2.0",
+    "node-sass": "^4.7.2",
+    "postcss-cli": "^5.0.0"
   },
   "dependencies": {}
 }
